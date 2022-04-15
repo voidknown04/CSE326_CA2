@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>social</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/feed.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="#" class="bg-gray"><i class="fa fa-home "></i>5AM Club</a>
+			<ul class="topnav" id="mainNav">
+				
+				<li ><a href="#" class="bg-white"><i class="fa fa-home"></i></a></li>
+				<li><a href="#" class="bg-white"><i class="fa fa-envelope"></i></a></li>				
+				<li><a href="#" class="bg-last"><i class="fa fa-bell"></i><span>3</span></a>
+					<ul>
+						<li><a href="#">One new friend request</a></li>
+						<li><a href="#">{{first_name}} posted on your wall</a></li>
+						<li><a href="#">Jane likes your post</a></li>
+					</ul>
+				</li>
+				<li><a href="{{url_for('logout')}}" class="bg-white"><i class="fa fa-sign-out"></i></a></li>
+			</ul>
+			<div class="toggle"><a href="#"  onclick="slideshow()"><i class="fa fa-bars"></i></a></div>
+			<a href="#" class="sideimage"><img src="{{ url_for('static' , filename='assets/photo1.png') }}"></a>
+		</nav>
+	</header>
+<!-- / -->
+
+	<div class="container">
+		<div class="row">
+			<section class="firstColumn">
+				<div class="card">
+					<div class="container1">
+						<h4>My Profile</h4>
+						<p class="mainPic"><img src="{{ url_for('static' , filename='assets/photo2.png') }}"></p>
+						<hr>
+						<p><i class="fa fa-user fa-fw"></i>{{first_name}} {{ last_name }}</p>
+						<p><i class="fa fa-envelope fa-fw"></i>{{username}}</p>
+						<p><i class="fa fa-birthday-cake fa-fw"></i>{{dob}}</p>
+					</div>
+				</div><br>
+				<div class="card1">
+					
+						<button onclick="myfunction('demo1')">
+							<i class="fa fa-circle-o-notch"></i> My Groups
+						</button>
+						<div id="demo1"><p>Groups</p></div>
+
+						<button onclick="myfunction1('demo2')">
+							<i class="fa fa-calendar-check-o"></i> My Events
+						</button>
+						<div id="demo2"><p>Events</p></div>
+
+						<button onclick="myfunction2('demo3')">
+							<i class="fa fa-users"></i> My Photos
+						</button>
+						<div id="demo3">
+							<div class="row1">
+								<div class="photoHalf">
+									<div class="half"><img src="{{ url_for('static' , filename='assets/photo3.png') }}"></div>
+									<div class="half"><img src="{{ url_for('static' , filename='assets/photo3.png') }}"></div>
+									<div class="half"><img src="{{ url_for('static' , filename='assets/photo3.png') }}"></div>
+								</div>
+								<div class="photoHalf">
+									<div class="half"><img src="{{ url_for('static' , filename='assets/photo3.png') }}"></div>
+									<div class="half"><img src="{{ url_for('static' , filename='assets/photo3.png') }}"></div>
+									<div class="half"><img src="{{ url_for('static' , filename='assets/photo3.png') }}"></div>
+								</div>
+							</div>
+						</div>
+					
+				</div><br>
+				<div class="card2">
+					<div class="container1">
+						<p>Interests</p>
+						<p>
+							<span class="bg1Card2 card2white">News</span>
+							<span class="bg3Card2 card2white">Labels</span>
+							<span class="bg4Card2 card2white">Games</span>
+							<span class="bg5Card2 card2white">Friends</span>
+							<span class="bg6Card2 card2white">Games</span>
+							<span class="bg7Card2 card2white">Friends</span>
+							<span class="bg8Card2 card2black">Food</span>
+							<span class="bg9Card2 card2black">Design</span>
+							<span class="bg10Card2 card2black">Art</span>
+							<span class="bg11Card2 card2black">Photos</span>
+						</p>
+					</div>
+				</div><br>
+				<div class="card3">
+					<div class="container1">
+						<span onclick="removebtn()"><i class="fa fa-remove"></i></span>
+						<p><strong>Hey!</strong></p>
+						<p>People are looking at your profile. Find out who.</p>
+					</div>
+				</div>
+
+
+			</section>
+			<!-- /End firstColumn -->
+			<section class="midColumn">
+				<div class="post">
+					<div class="container1">
+						<p><input type="text" name="" placeholder="Status: Feeling Blue"></p>
+						<button type="button"><i class="fa fa-pencil"></i>Post</button>
+					</div>
+				</div>
+				<div class="userFirst">
+					<div class="container1">
+						<img class="miduserpic" src="{{ url_for('static' , filename='assets/photo1.png') }}">
+						<h4>{{first_name}}</h4>
+						<span>1 min</span>
+						<div class="clearfix"></div><hr>
+						<p>“You cannot conquer a mountain, for it shall continue to exist beyond you. However, if not careful, a mountain can conquer you.” – {{ first_name }} {{ last_name }}. The best view comes after the hardest climb.</p>
+						<div class="userGallery">
+							<div class="userHalf"><img src="{{ url_for('static' , filename='assets/photo3.png') }}"></div>
+							<div class="userHalf"><img src="{{ url_for('static' , filename='assets/photo4.png') }}"></div>
+						</div>
+						<button type="button"><i class="fa fa-thumbs-up"></i>Like</button>
+						<button type="button"><i class="fa fa-comment"></i>comment</button>
+					</div>	
+				</div>
+				<div class="userFirst">
+					<div class="container1">
+						<img class="miduserpic" src="{{ url_for('static' , filename='assets/photo1.png') }}">
+						<h4>{{first_name}}</h4>
+						<span>16 min</span>
+						<div class="clearfix"></div><hr>
+						<p>“Just take my hand, lead, dance with me...and I will simply follow the blueness of the water, the white waves rolling free...where the earth beneath my feet and stars make my heart whole again...in long and priceless moments of shared solitude...” - {{ first_name }} {{ last_name }}</p>
+						<button type="button"><i class="fa fa-thumbs-up"></i>Like</button>
+						<button type="button"><i class="fa fa-comment"></i>comment</button>
+					</div>	
+				</div>
+				<div class="userFirst">
+					<div class="container1">
+						<img class="miduserpic" src="{{ url_for('static' , filename='assets/photo1.png') }}">
+						<h4>{{first_name}}</h4>
+						<span>32 min</span>
+						<div class="clearfix"></div><hr>
+						<p>Have you seen this?</p>
+						<div class="userImage"><img src="{{ url_for('static' , filename='assets/photo3.png') }}"></div>
+						<p>"When one door closes, another opens; but we often look so long and so regretfully upon the closed door that we do not see the one which has opened for us" - {{ first_name }} {{ last_name }}</p>
+						<button type="button"><i class="fa fa-thumbs-up"></i>Like</button>
+						<button type="button"><i class="fa fa-comment"></i>comment</button>
+					</div>	
+				</div>
+			</section>
+			<!-- /End secondcolumn -->
+
+			<section class="thirdColumn">
+				<div class="rightCard">
+					<div class="container1">
+						<p>Upcoming Events</p>
+						<img src="{{ url_for('static' , filename='assets/photo3.png') }}">
+						<p><strong>Holiday</strong></p>
+						<p>Friday 15:00</p>
+						<p><button type="button">info</button></p>
+					</div>
+				</div><br>
+				<div class="rightCard1">
+					<div class="container1">
+						<p>Upcoming Events</p>
+						<img src="{{ url_for('static' , filename='assets/photo2.png') }}"><br>
+						<span>Jane Doe</span>
+						<div class="fullbtn">
+							<div class="btnHalf"><button class="green" type="button"><i class="fa fa-check"></i></button></div>
+							<div class="btnHalf"><button class="orange" type="button"><i class="fa fa-remove"></i></button></div>
+						</div>
+					</div>
+				</div><br>
+				<div class="bug"><p><i class="fa fa-bug"></i></p></div>
+			</section>
+		</div>
+	</div>
+	
+<!-- / -->
+	<footer>
+		<p>5AM Club Feed</p>
+	</footer>
+	<footer class="footsecond">
+		<p>&copy; Powered by 5AM Club</p>
+	</footer>
+
+<script>
+ 
+// // Accordion
+// function myFunction(id) {
+//     var x = document.getElementById(id);
+//     if (x.className.indexOf("w3-show") == -1) {
+//         x.className += " w3-show";
+//         x.previousElementSibling.className += " w3-theme-d1";
+//     } else { 
+//         x.className = x.className.replace("w3-show", "");
+//         x.previousElementSibling.className = 
+//         x.previousElementSibling.className.replace(" w3-theme-d1", "");
+//     }
+// }
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+// function slideshow() {
+//     var x = document.getElementById("mainNav")
+//     if (x.toggle.display = "block";
+//     } else { 
+//         x.style.display = "none";
+//     }
+// }
+
+function slideshow() {
+    var x = document.getElementById("mainNav");
+    if (x.style.display === "none"){
+    	x.style.display="block";
+    } else{
+    	x.style.display="none";
+    }
+}
+
+
+function myfunction() {
+    var x = document.getElementById("demo1");
+    if (x.style.display === "none"){
+    	x.style.display="block";
+    } else{
+    	x.style.display="none";
+    }
+}
+
+function myfunction1() {
+    var x = document.getElementById("demo2");
+    if (x.style.display === "none"){
+    	x.style.display="block";
+    } else{
+    	x.style.display="none";
+    }
+}
+
+function myfunction2() {
+    var x = document.getElementById("demo3");
+    if (x.style.display === "none"){
+    	x.style.display="block";
+    } else{
+    	x.style.display="none";
+    }
+}
+
+</script>
+</body>
+</html>

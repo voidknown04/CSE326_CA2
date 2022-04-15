@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>5AM Club</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    
+    <nav class="navbar">
+        <div class="header">5AM Club</div>
+        <form class="login_form" action="{{ url_for('login') }}" method="POST">
+            <div class="email">
+                <div class="font">Email or Phone</div>
+                <input type="text" name="username">
+            </div>
+            <div class="password">
+                <div class="font">Password</div>
+                <input type="password" name="password">
+            </div>
+            <button class="login_btn">Login</button>
+        </form>
+    </nav>
+
+    <section>
+        <div class="logo_body">
+            <img class="logobdy" src="{{ url_for('static' , filename='assets/home.png') }}">
+            <p class="like_font font1">Thanks for stopping by!</p>
+            <p class="like_font">We hope to see you again soon.</p>
+        </div>
+
+        <div class="signup_body">
+            <p class="acc_crt">Create an account</p>
+            <p class="free_hint">It's free and always will be.</p>
+            <form class="signup_form" action="{{ url_for('signup') }}" method="POST">
+                <div>
+                    <input class="firstname" type="text" name="first_name" placeholder="First name" required>
+                    <input class="lastname" type="text" name="last_name" placeholder="Last name" required>
+                    <input class="email" type="text" name="username" placeholder="Mobile number or Email" required>
+                    <input class="password" type="password" name="password" placeholder="Password" id="pass" required>
+                    <input class="password2" type="password" name="password" placeholder="Confirm password" id="confirmpass" required>
+                    <p id="error" style="color: red;"></p>
+                </div>
+                <p class="birthday">Birthday</p>
+                <div class="birth_date">
+                    <select class="month" name="mob" required>
+                        <option value="Jan">Month</option>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
+
+                    <select class="day" name="dayob" required>
+                        <option value="1">Day</option>
+                        {% for i in range(1, 32) %}
+                            <option>{{ i }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <select class="year" name="yob" required>
+                        <option value="1970">Year</option>
+                        {% for i in range(1970, 2011) %}
+                            <option>{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                    <p class="brth_hint"><a href="#">Why do i need to provide my date of birth?</a></p>
+                </div>
+
+                <input type="radio" name="delete" value="male">
+                <input type="radio" name="delete" value="female">
+
+                <p class="font">Male</p>
+                <p class="font font2">Female</p>
+                <p class="agreement">By clicking Sign Up, you agree to our <a href="#">Terms, Data Policy and Cookies
+                        Policy.</a> You may receive SMS Notifications from us and can opt out any time.</p>
+
+                <button class="signup">Sign Up</button>
+
+            </form>
+        </div>
+
+    </section>
+
+</body>
+<script src='{{ url_for('static' , filename='js/script.js') }}'></script>
+</html>
